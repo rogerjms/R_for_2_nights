@@ -1,4 +1,4 @@
-small=diamonds[sample(nrow(diamonds),1000),]
+ï»¿small=diamonds[sample(nrow(diamonds),1000),]
 head(small)
 p = ggplot(data=small,mapping=aes(x=carat,y=price))
 p+geom_point()
@@ -6,47 +6,47 @@ p <- ggplot(data=small, mapping=aes(x=carat, y=price, shape=cut))
 p+geom_point()
 p <- ggplot(data=small, mapping=aes(x=carat, y=price, shape=cut, colour=color))
 p+geom_point()
-#¼¸ºÎ¶ÔÏó£¨Geometric£©
-#²»Í¬µÄ¼¸ºÎ¶ÔÏó£¬ÒªÇóµÄÊôÐÔ»áÓÐÐ©Ø¢Í¬£¬ÕâÐ©ÊôÐÔÒ²¿ÉÒÔÔÚ¼¸ºÎ¶ÔÏóÓ³ÉäÊ±Ìá¹©
+#å‡ ä½•å¯¹è±¡ï¼ˆGeometricï¼‰
+#ä¸åŒçš„å‡ ä½•å¯¹è±¡ï¼Œè¦æ±‚çš„å±žæ€§ä¼šæœ‰äº›ä¸ŒåŒï¼Œè¿™äº›å±žæ€§ä¹Ÿå¯ä»¥åœ¨å‡ ä½•å¯¹è±¡æ˜ å°„æ—¶æä¾›
 
 p <- ggplot(small)
 p+geom_point(aes(x=carat, y=price, shape=cut, colour=color))
-#ggplot2Ö§³ÖÍ¼²ã£¬ÎÒÍ¨³£°ÑØ¢Í¬µÄÍ¼²ãÖÐ¹²ÓÃµÄÓ³ÉäÌá¹©¸øggplotÛÊÊý£¬¶øÄ³Ò»¼¸ºÎ¶ÔÏó²ÅÐèÒªµÄÓ³Éä²ÎÊýÌá¹©¸øgeom_xxxÛÊÊý¡£
-#Ö±·½Í¼
+#ggplot2æ”¯æŒå›¾å±‚ï¼Œæˆ‘é€šå¸¸æŠŠä¸ŒåŒçš„å›¾å±‚ä¸­å…±ç”¨çš„æ˜ å°„æä¾›ç»™ggplotå‡¼æ•°ï¼Œè€ŒæŸä¸€å‡ ä½•å¯¹è±¡æ‰éœ€è¦çš„æ˜ å°„å‚æ•°æä¾›ç»™geom_xxxå‡¼æ•°ã€‚
+#ç›´æ–¹å›¾
 ggplot(small)+geom_histogram(aes(x=price))
-ggplot(small)+geom_histogram(aes(x=price, fill=cut))#Ìí¼ÓÑÕÉ«
+ggplot(small)+geom_histogram(aes(x=price, fill=cut))#æ·»åŠ é¢œè‰²
 ggplot(small)+geom_histogram(aes(x=price, fill=cut), position="dodge")
 ggplot(small)+geom_histogram(aes(x=price, fill=cut), position="fill")
-#Öù×´Í¼
+#æŸ±çŠ¶å›¾
 ggplot(small)+geom_bar(aes(x=clarity))
 ggplot()+geom_bar(aes(x=c(LETTERS[1:3]),y=1:3), stat="identity")
-#ÃÜ¶Èº¯Êý
+#å¯†åº¦å‡½æ•°
 ggplot(small)+geom_density(aes(x=price, colour=cut))
 ggplot(small)+geom_density(aes(x=price,fill=clarity))
-#ÏäÊ½Í¼
+#ç®±å¼å›¾
 ggplot(small)+geom_boxplot(aes(x=cut, y=price,fill=color))
-#±ê³ß
-#Ç°ÃæÎÒÃÇÒÑ¾­¿´µ½ÁË£¬»­Í¼¾ÍÊÇÔÚ×öÓ³Éä£¬Ø¢¹ÜÊÇÓ³Éäµ½Ø¢Í¬µÄ¼¸ºÎ¶ÔÏóÉÏ£¬»¹ÊÇÓ³Éä¸÷ÖÖÍ¼ÐÎÊôÐÔ
+#æ ‡å°º
+#å‰é¢æˆ‘ä»¬å·²ç»çœ‹åˆ°äº†ï¼Œç”»å›¾å°±æ˜¯åœ¨åšæ˜ å°„ï¼Œä¸Œç®¡æ˜¯æ˜ å°„åˆ°ä¸ŒåŒçš„å‡ ä½•å¯¹è±¡ä¸Šï¼Œè¿˜æ˜¯æ˜ å°„å„ç§å›¾å½¢å±žæ€§
 ggplot(small)+geom_point(aes(x=carat, y=price, shape=cut, colour=color))+scale_y_log10()+scale_colour_manual(values=rainbow(7))
-#Í³¼Æ±ä»»£¨Statistics£©
+#ç»Ÿè®¡å˜æ¢ï¼ˆStatisticsï¼‰
 ggplot(small, aes(x=carat, y=price))+geom_point()+scale_y_log10()+stat_smooth()
-#×¢ÒâÕâÀï£¬aesËùÌá¹©µÄ²ÎÊý£¬¾ÍÍ¨¹ýggplotÌá¹©£¬¶øØ¢ÊÇÌá¹©¸øgeom_point£¬ÒòÎªggplotÀïµÄ²ÎÊý£¬Ïàµ±ÓÚÈ«¾Ö±äÁ¿£¬geom_point()ºÍstat_smooth()¶¼ÖªµÀx,yµÄÓ³Éä£¬Èç¹ûÖ»Ìá¹©¸øgeom_point()£¬ÔòÏàµ±ÓÚÊÇ¾Ö²¿±äÁ¿£¬geom_pointÖªµÀÕâÖÖÓ³Éä£¬¶østat_smoothØ¢ÖªµÀ£¬µ±È»ÄãÔÙ¸østat_smoothÒ²Ìá¹©x,yµÄÓ³Éä£¬Ø¢¹ý¹²ÓÃµÄÓ³Éä£¬»¹ÊÇÌá¹©¸øggplotºÃ¡£
+#æ³¨æ„è¿™é‡Œï¼Œaesæ‰€æä¾›çš„å‚æ•°ï¼Œå°±é€šè¿‡ggplotæä¾›ï¼Œè€Œä¸Œæ˜¯æä¾›ç»™geom_pointï¼Œå› ä¸ºggploté‡Œçš„å‚æ•°ï¼Œç›¸å½“äºŽå…¨å±€å˜é‡ï¼Œgeom_point()å’Œstat_smooth()éƒ½çŸ¥é“x,yçš„æ˜ å°„ï¼Œå¦‚æžœåªæä¾›ç»™geom_point()ï¼Œåˆ™ç›¸å½“äºŽæ˜¯å±€éƒ¨å˜é‡ï¼Œgeom_pointçŸ¥é“è¿™ç§æ˜ å°„ï¼Œè€Œstat_smoothä¸ŒçŸ¥é“ï¼Œå½“ç„¶ä½ å†ç»™stat_smoothä¹Ÿæä¾›x,yçš„æ˜ å°„ï¼Œä¸Œè¿‡å…±ç”¨çš„æ˜ å°„ï¼Œè¿˜æ˜¯æä¾›ç»™ggplotå¥½ã€‚
 
 
 
 
-#×ø±êÏµÍ³
-#×ø±êÏµÍ³¿ØÖÆ×ø±êÖá£¬¿ÉÒÔÞ‰ÐÐ±ä»»£¬ÀýÈçXYÖá·­×ª£¬µÑ¿¨¶û×ø±êºÍ¼«×ø±ê×ª»»£¬ÒÔÂú×ãÎÒÃÇµÄ¸÷ÖÖÐèÇó¡£
+#åæ ‡ç³»ç»Ÿ
+#åæ ‡ç³»ç»ŸæŽ§åˆ¶åæ ‡è½´ï¼Œå¯ä»¥è¿šè¡Œå˜æ¢ï¼Œä¾‹å¦‚XYè½´ç¿»è½¬ï¼Œç¬›å¡å°”åæ ‡å’Œæžåæ ‡è½¬æ¢ï¼Œä»¥æ»¡è¶³æˆ‘ä»¬çš„å„ç§éœ€æ±‚ã€‚
 ggplot(small)+geom_bar(aes(x=cut, fill=cut))+coord_flip()
 ggplot(small)+geom_bar(aes(x=factor(1), fill=cut))+coord_polar(theta="y")
-#±ýÍ¼
-#ÕâÒ²ÊÇÎªÊ²Ã´YÇ°½éÉÜ³£ÓÃÍ¼ÐÎ»­·¨Ê±Ã»ÓÐÌá¼°±ýÍ¼µÄÔ­Òò£¬±ýÍ¼Êµ¼ÊÉÏ¾ÍÊÇÖù×´Í¼£¬Ö»Ø¢¹ýÊÇÊ¹ÓÃ¼«×ø±ê¶øÒÑ£¬Öù×´Í¼µÄ¸ß¶È£¬¶ÔÓ¦ÓÚ±ýÍ¼µÄ»¡¶È£¬±ýÍ¼ŽÔØ¢ÍÆ¼ö£¬ÒòÎªÈËÀàµÄÑÛ¾¦±È½Ï»¡¶ÈµÄÄÜÁ¦±ÈØ¢ÉÏ±È½Ï¸ß¶È£¨Öù×´Í¼£©
+#é¥¼å›¾
+#è¿™ä¹Ÿæ˜¯ä¸ºä»€ä¹ˆä¹Šå‰ä»‹ç»å¸¸ç”¨å›¾å½¢ç”»æ³•æ—¶æ²¡æœ‰æåŠé¥¼å›¾çš„åŽŸå› ï¼Œé¥¼å›¾å®žé™…ä¸Šå°±æ˜¯æŸ±çŠ¶å›¾ï¼Œåªä¸Œè¿‡æ˜¯ä½¿ç”¨æžåæ ‡è€Œå·²ï¼ŒæŸ±çŠ¶å›¾çš„é«˜åº¦ï¼Œå¯¹åº”äºŽé¥¼å›¾çš„å¼§åº¦ï¼Œé¥¼å›¾å¹µä¸ŒæŽ¨èï¼Œå› ä¸ºäººç±»çš„çœ¼ç›æ¯”è¾ƒå¼§åº¦çš„èƒ½åŠ›æ¯”ä¸Œä¸Šæ¯”è¾ƒé«˜åº¦ï¼ˆæŸ±çŠ¶å›¾ï¼‰
 ggplot(small)+geom_bar(aes(x=factor(1), fill=cut))+coord_polar()
-#Ãµ¹åÍ¼
+#çŽ«ç‘°å›¾
 ggplot(small)+geom_bar(aes(x=clarity, fill=cut))+coord_polar()
-#°´ÕÕÇÐ¹¤·ÖÃæ×÷Í¼
+#æŒ‰ç…§åˆ‡å·¥åˆ†é¢ä½œå›¾
 ggplot(small, aes(x=carat, y=price))+geom_point(aes(colour=cut))+scale_y_log10() +facet_wrap(~cut)+stat_smooth()
-#Ìí¼ÓÖ÷Ìâ
-#Í¨¹ýggplot»­Í¼Yºó£¬ÎÒÃÇ¿ÉÄÜ»¹ÐèÒª¶ÔÍ¼Þ‰ÐÐ¶¨ÖÆ£¬Ïñtitle, xlab, ylabÕâÐ©¸ßÆµÐèÒªÓÃµ½µÄ£¬×ÔØ¢ÓÃËµ£¬ggplot2Ìá¹©ÁËggtitle(), xlab()ºÍylab()À´ÊµÏÖ¡£
-#ggplot2Ìá¹©Ò»Ð©ÒÑ¾­Ð´ºÃµÄÖ÷Ìâ£¬±ÈÈçtheme_grey()ÎªÄ¬ÈÏÖ÷Ìâ£¬ÎÒ¾­³£ÓÃµÄtheme_bw()Îª°×É«±³¾°µÄÖ÷Ìâ£¬»¹ÓÐtheme_classic()Ö÷Ìâ£¬ºÍRµÄ»ù´¡»­Í¼ÛÊÊý½ÏÏñ
+#æ·»åŠ ä¸»é¢˜
+#é€šè¿‡ggplotç”»å›¾ä¹ŠåŽï¼Œæˆ‘ä»¬å¯èƒ½è¿˜éœ€è¦å¯¹å›¾è¿šè¡Œå®šåˆ¶ï¼Œåƒtitle, xlab, ylabè¿™äº›é«˜é¢‘éœ€è¦ç”¨åˆ°çš„ï¼Œè‡ªä¸Œç”¨è¯´ï¼Œggplot2æä¾›äº†ggtitle(), xlab()å’Œylab()æ¥å®žçŽ°ã€‚
+#ggplot2æä¾›ä¸€äº›å·²ç»å†™å¥½çš„ä¸»é¢˜ï¼Œæ¯”å¦‚theme_grey()ä¸ºé»˜è®¤ä¸»é¢˜ï¼Œæˆ‘ç»å¸¸ç”¨çš„theme_bw()ä¸ºç™½è‰²èƒŒæ™¯çš„ä¸»é¢˜ï¼Œè¿˜æœ‰theme_classic()ä¸»é¢˜ï¼Œå’ŒRçš„åŸºç¡€ç”»å›¾å‡¼æ•°è¾ƒåƒ
 
